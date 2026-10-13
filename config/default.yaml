@@ -1,0 +1,41 @@
+# Default composition profile for midi-compose-ai.
+# Override per-invocation with --profile <path>.
+
+profile: default
+seed: 6767
+
+model:
+  checkpoint: model_weights/midi-compose-base.safetensors
+  tokenizer: tokenizer_cache/remi_bpe.json
+  max_tokens: 4096
+  temperature: 0.9
+  top_p: 0.95
+  top_k: 64
+
+generation:
+  bars: 32
+  time_signature: [4, 4]
+  key: C
+  mode: minor
+  tempo_bpm: 96
+  tracks:
+    - name: piano
+      program: 0
+      channel: 0
+    - name: bass
+      program: 33
+      channel: 1
+    - name: strings
+      program: 48
+      channel: 2
+
+conditioning:
+  prompt: "nocturne, rainy window, slow arpeggio"
+  chord_sketch: null
+  reference_midi: null
+  motif_recurrence: 0.4
+
+render:
+  backend: fluidsynth
+  soundfont: C:/soundfonts/FluidR3_GM.sf2
+  sample_rate: 44100

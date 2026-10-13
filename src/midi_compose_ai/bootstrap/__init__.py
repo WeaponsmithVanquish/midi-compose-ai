@@ -1,0 +1,1 @@
+"""Bootstrap layer: process entry, DI container, shell wiring."""
